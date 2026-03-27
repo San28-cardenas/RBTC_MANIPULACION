@@ -1,0 +1,56 @@
+def Program1():
+  step_count_2c073ddf_ee7c_45c4_a76d_23fe46bf9401 = 0.0
+  thread Step_Counter_Thread_8a468375_ed42_4a55_a575_284f7943dd7c():
+    while (True):
+      step_count_2c073ddf_ee7c_45c4_a76d_23fe46bf9401 = step_count_2c073ddf_ee7c_45c4_a76d_23fe46bf9401 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_8a468375_ed42_4a55_a575_284f7943dd7c()
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_payload(5.0)
+  set_tool_voltage(0)
+  set_safety_mode_transition_hardness(1)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  set_gravity([0.0, 0.0, 9.82])
+  # begin: URCap Installation Node
+  #   Source: External Control, 1.0.5, FZI Research Center for Information Technology
+  #   Type: External Control
+  # end: URCap Installation Node
+  while (True):
+    $ 2 "Robot Program"
+    $ 3 "Popup: Iniciamos con el programa 1, INICIALES INTEGRANTES"
+    popup("Iniciamos con el programa 1, INICIALES INTEGRANTES", "Message", False, False, blocking=True)
+    $ 4 "MoveL"
+    $ 5 "A" "breakAfter"
+    movel(p[-.418111433715, -.431763096768, .319670892063, -.001221150316, 3.116276362270, .038892085410], a=1.2, v=0.25)
+    $ 6 "Popup: Finalizacion letra A e inicio letra S"
+    popup("Finalizacion letra A e inicio letra S", "Message", False, False, blocking=True)
+    $ 7 "MoveL"
+    $ 8 "D" "breakAfter"
+    movel(p[-.418111470408, -.252164768611, .501831532859, -.006996099581, -2.695405045184, -.033791171083], a=1.2, v=0.25)
+    $ 9 "Popup: Finalizacion D e inicio S"
+    popup("Finalizacion D e inicio S", "Message", False, False, blocking=True)
+    $ 10 "MoveL"
+    $ 11 "S" "breakAfter"
+    movel(p[-.038675381831, .131614670584, .784400364330, -1.175636524158, -1.370737422535, .607544782309], a=1.2, v=0.25)
+    $ 12 "Popup: Finalizacion de S e inicio de R"
+    popup("Finalizacion de S e inicio de R", "Message", False, False, blocking=True)
+    $ 13 "MoveL"
+    $ 14 "R" "breakAfter"
+    movel(p[.235477336129, -.060286112834, .707187242366, -1.299955204287, -.452532196543, .072713424651], a=1.2, v=0.25)
+    $ 15 "Popup: Finalizacion de R e inicio de C"
+    popup("Finalizacion de R e inicio de C", "Message", False, False, blocking=True)
+    $ 16 "MoveL"
+    $ 17 "C" "breakAfter"
+    movel(p[.308731320730, -.060286154862, .590387229525, -1.299955141802, -.452532252045, .072713125792], a=1.2, v=0.25)
+    $ 18 "Popup: Terminamos programa 1 e iniciamos programa 2"
+    popup("Terminamos programa 1 e iniciamos programa 2", "Message", False, False, blocking=True)
+  end
+end
