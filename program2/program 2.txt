@@ -1,0 +1,8 @@
+ Program
+   Robot Program
+     Set DO[0]=On
+     Wait: 0.01
+     Popup: El control será compartido con un controlador externo (ROS2) presiona OK para continuar :)
+     Wait: 5.0
+     textmsg("esperando el control externo desde ROS2")
+     Control by 192.168.56.1

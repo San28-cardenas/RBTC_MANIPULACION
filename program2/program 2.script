@@ -1,0 +1,45 @@
+def program_2():
+  set_gravity([0.0, 0.0, 9.82])
+  set_tool_voltage(0)
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_payload(5.0)
+  step_count_1202f7e3_09d5_4630_b857_e09fd4c98744 = 0.0
+  thread Step_Counter_Thread_f4e27e5d_501a_49ea_9b56_ab1ab8c6aa18():
+    while (True):
+      step_count_1202f7e3_09d5_4630_b857_e09fd4c98744 = step_count_1202f7e3_09d5_4630_b857_e09fd4c98744 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_f4e27e5d_501a_49ea_9b56_ab1ab8c6aa18()
+  set_safety_mode_transition_hardness(1)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  # begin: URCap Installation Node
+  #   Source: External Control, 1.0.5, FZI Research Center for Information Technology
+  #   Type: External Control
+  # end: URCap Installation Node
+  while (True):
+    $ 1 "Robot Program"
+    $ 2 "Set DO[0]=On"
+    set_standard_digital_out(0, True)
+    $ 3 "Wait: 0.01"
+    sleep(0.01)
+    $ 4 "Popup: El control será compartido con un controlador externo (ROS2) presiona OK para continuar :)"
+    popup("El control será compartido con un controlador externo (ROS2) presiona OK para continuar :)", "Message", False, False, blocking=True)
+    $ 5 "Wait: 5.0"
+    sleep(5.0)
+    $ 6 "textmsg('esperando el control externo desde ROS2')"
+    textmsg("esperando el control externo desde ROS2")
+    # begin: URCap Program Node
+    #   Source: External Control, 1.0.5, FZI Research Center for Information Technology
+    #   Type: External Control
+    $ 7 "Control by 192.168.56.1"
+popup("The connection to the remote PC at 172.25.71.142:50002 could not be established. Reason: Connection refused (Connection refused)","Receive program failed", False, True, blocking=True)
+sync()    # end: URCap Program Node
+  end
+end
