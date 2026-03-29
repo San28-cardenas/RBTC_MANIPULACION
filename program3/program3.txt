@@ -1,0 +1,25 @@
+ Program
+   Robot Program
+     MoveJ
+       inicio
+       Loop
+         MoveL
+           encima_pieza1
+         MoveL
+           Agarre_pieza1
+         Set DO[0]=On
+         MoveL
+           Salida_vertical
+         MoveL
+           Waypoint_4
+         Set DO[0]=Off
+         MoveL
+           encima_pieza2
+         MoveL
+           agarre_pieza2
+           Set DO[0]=On
+         MoveL
+           salida
+         MoveL
+           punto_llegada2
+       Wait DI[0]=LO

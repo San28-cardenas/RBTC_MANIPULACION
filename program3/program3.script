@@ -1,0 +1,71 @@
+def program3():
+  set_gravity([0.0, 0.0, 9.82])
+  set_tool_voltage(0)
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_payload(5.0)
+  step_count_1202f7e3_09d5_4630_b857_e09fd4c98744 = 0.0
+  thread Step_Counter_Thread_f4e27e5d_501a_49ea_9b56_ab1ab8c6aa18():
+    while (True):
+      step_count_1202f7e3_09d5_4630_b857_e09fd4c98744 = step_count_1202f7e3_09d5_4630_b857_e09fd4c98744 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_f4e27e5d_501a_49ea_9b56_ab1ab8c6aa18()
+  set_safety_mode_transition_hardness(1)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  # begin: URCap Installation Node
+  #   Source: External Control, 1.0.5, FZI Research Center for Information Technology
+  #   Type: External Control
+  # end: URCap Installation Node
+  while (True):
+    $ 1 "Robot Program"
+    $ 2 "MoveJ"
+    $ 3 "inicio" "breakAfter"
+    movej(get_inverse_kin(p[-.104437555371, -.024654203559, .411335639937, -.394991541154, 2.738605108209, -1.134277859940], qnear=[-1.2667129675494593, -0.11311465898622686, -2.287818495427267, -1.5198786894427698, 1.5965819358825684, 0.02837185561656952]), a=1.3962634015954636, v=1.0471975511965976)
+    $ 4 "Loop"
+    while (True):
+      $ 5 "MoveL"
+      $ 6 "encima_pieza1" "breakAfter"
+      movel(p[-.312415172105, .575705083192, .012299380057, -.679713489051, -2.112982999885, -1.895196448443], a=1.2, v=0.25)
+      $ 7 "MoveL"
+      $ 8 "Agarre_pieza1" "breakAfter"
+      movel(p[-.249519745335, .504424353021, .021144535826, 1.274150425476, 1.992513790936, 1.642477563348], a=1.2, v=0.25)
+      $ 9 "Set DO[0]=On"
+      set_standard_digital_out(0, True)
+      set_payload(1.0)
+      $ 10 "MoveL"
+      $ 11 "Salida_vertical" "breakAfter"
+      movel(p[-.066885363996, .064744259812, .951338723234, -1.093647115179, .481869855879, -1.475644396123], a=1.2, v=0.25)
+      $ 12 "MoveL"
+      $ 13 "Waypoint_4" "breakAfter"
+      movel(p[-.052064786211, .029162106198, .263030294716, -1.741968821913, -.607903226952, -1.782305954538], a=1.2, v=0.25)
+      $ 14 "Set DO[0]=Off"
+      set_standard_digital_out(0, False)
+      set_payload(0.0)
+      $ 15 "MoveL"
+      $ 16 "encima_pieza2" "breakAfter"
+      movel(p[-.598333328385, -.254888724542, -.080009869221, .564299075153, -2.019319247378, -.716720994874], a=1.2, v=0.25)
+      $ 17 "MoveL"
+      $ 18 "agarre_pieza2" "breakAfter"
+      movel(p[-.519938836916, -.200812824341, -.148969530914, -.010707502793, -2.261378746585, -1.158492848805], a=1.2, v=0.25)
+      $ 19 "Set DO[0]=On"
+      set_standard_digital_out(0, True)
+      $ 20 "MoveL"
+      $ 21 "salida" "breakAfter"
+      movel(p[-.237465389599, .569503570686, .495687623060, -1.432901153354, -.187476490980, -1.533072038931], a=1.2, v=0.25)
+      $ 22 "MoveL"
+      $ 23 "punto_llegada2" "breakAfter"
+      movel(p[-.140067643786, .269532520214, .080317434280, -1.191954470393, -1.623867157919, -1.350470619142], a=1.2, v=0.25)
+    end
+    $ 24 "Wait DI[0]=LO"
+    while (get_standard_digital_in(0) == True):
+      sync()
+    end
+  end
+end
