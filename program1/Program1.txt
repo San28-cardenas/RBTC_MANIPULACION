@@ -1,0 +1,19 @@
+ Program
+   Init Variables
+   Robot Program
+     Popup: Iniciamos con el programa 1, INICIALES INTEGRANTES
+     MoveL
+       A
+       Popup: Finalizacion letra A e inicio letra S
+       MoveL
+         D
+         Popup: Finalizacion D e inicio S
+         MoveL
+           S
+           Popup: Finalizacion de S e inicio de R
+           MoveL
+             R
+             Popup: Finalizacion de R e inicio de C
+             MoveL
+               C
+     Popup: Terminamos programa 1 e iniciamos programa 2
